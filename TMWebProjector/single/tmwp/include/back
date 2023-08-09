@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+namespace tmwp
+{
+class Request
+{
+public:
+char *method;
+char *resource;
+char *mimeType;
+char isClientSideTechnologyResource;
+int dataCount;
+char ** data;
+string forwardTo;
+string get(string name);
+void forward(string forwardTo);
+};
+class Response
+{
+private:
+int clientSocketDescriptor;
+bool isClosed;
+void createHeader();
+bool headerCreated;
+public:
+Response(int clientSocketDescriptor);
+void write(const char *str);
+//overloading of more methods required for other primitive data types
+void close();
+};
+class TMWebProjector
+{
+private:
+int portNumber;
+char *url;
+void (*ptrOnRequest)(Request &,Response &);
+public:
+TMWebProjector(int portNumber);
+~TMWebProjector();
+void onRequest(const char *url,void (*ptrOnRequest)(Request &,Response &));
+void start();
+};
+}

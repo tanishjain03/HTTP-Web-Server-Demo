@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Clock</title>
+</head>
+<body>
+<a href='now'>Now</a><br>
+<form action='getCity' method="GET">
+City:
+<select name='cityCode' id='cityCode'>
+<option value='-1'>Select a city</option>
+<option value='1'>Ujjain</option>
+<option value='2'>Indore</option>
+<option value='3'>Dewas</option>
+</select><br>
+<button type='submit'>Get City View</button>
+</form>
+<hr>
+<b>Enquiry Form</b>
+<form action='addEnquiry'>
+Name <input type='text' name='nm'><br>
+Address<br>
+<textarea name='ad'></textarea><br>
+City <input type='text' name='ct'><br>
+Your quiry<br>
+<textarea name='msg'></textarea><br>
+<button type='submit'>Add Enquiry</button>
+</form>
+</body>
+</html>
